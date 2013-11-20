@@ -210,37 +210,37 @@
       {
         "type": "png",
         "name": "IMAGE_DAY_0_IT",
-        "file": "images/days_it/day_0.png"
+        "file": "images/days_it/day_0_it.png"
       },
       {
         "type": "png",
         "name": "IMAGE_DAY_1_IT",
-        "file": "images/days_it/day_1.png"
+        "file": "images/days_it/day_1_it.png"
       },
       {
         "type": "png",
         "name": "IMAGE_DAY_2_IT",
-        "file": "images/days_it/day_2.png"
+        "file": "images/days_it/day_2_it.png"
       },
       {
         "type": "png",
         "name": "IMAGE_DAY_3_IT",
-        "file": "images/days_it/day_3.png"
+        "file": "images/days_it/day_3_it.png"
       },
       {
         "type": "png",
         "name": "IMAGE_DAY_4_IT",
-        "file": "images/days_it/day_4.png"
+        "file": "images/days_it/day_4_it.png"
       },
       {
         "type": "png",
         "name": "IMAGE_DAY_5_IT",
-        "file": "images/days_it/day_5.png"
+        "file": "images/days_it/day_5_it.png"
       },
       {
         "type": "png",
         "name": "IMAGE_DAY_6_IT",
-        "file": "images/days_it/day_6.png"
+        "file": "images/days_it/day_6_it.png"
       }
     ]
   }

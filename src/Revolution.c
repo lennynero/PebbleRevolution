@@ -359,11 +359,12 @@ void time_slot_slide_out_animation_stopped(Animation *slide_out_animation, bool 
 void display_day(struct tm *tick_time) {
   unload_day_item();
 
-  if USE_IT_DAYS_LANG
+  if (USE_IT_DAYS_LANG) {
     day_item.image = gbitmap_create_with_resource(DAY_IMAGE_RESOURCE_IDS_IT[tick_time->tm_wday]);
-  else
+  }
+  else{
     day_item.image = gbitmap_create_with_resource(DAY_IMAGE_RESOURCE_IDS[tick_time->tm_wday]);
-  endif
+  }
 
   day_item.image_layer = bitmap_layer_create(day_item.image->bounds);
   bitmap_layer_set_bitmap(day_item.image_layer, day_item.image);
