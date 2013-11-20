@@ -11,6 +11,7 @@
 #define USE_AMERICAN_DATE_FORMAT      false
 #define VIBE_ON_HOUR                  false
 #define TIME_SLOT_ANIMATION_DURATION  500
+#define USE_IT_DAYS_LANG              true			
 
 // Magic numbers
 #define SCREEN_WIDTH        144
@@ -63,6 +64,13 @@ const int DAY_IMAGE_RESOURCE_IDS[NUMBER_OF_DAY_IMAGES] = {
   RESOURCE_ID_IMAGE_DAY_0, RESOURCE_ID_IMAGE_DAY_1, RESOURCE_ID_IMAGE_DAY_2, 
   RESOURCE_ID_IMAGE_DAY_3, RESOURCE_ID_IMAGE_DAY_4, RESOURCE_ID_IMAGE_DAY_5, 
   RESOURCE_ID_IMAGE_DAY_6
+};
+
+// Italian Days
+const int DAY_IMAGE_RESOURCE_IDS_IT[NUMBER_OF_DAY_IMAGES] = {
+  RESOURCE_ID_IMAGE_DAY_0_IT, RESOURCE_ID_IMAGE_DAY_1_IT, RESOURCE_ID_IMAGE_DAY_2_IT, 
+  RESOURCE_ID_IMAGE_DAY_3_IT, RESOURCE_ID_IMAGE_DAY_4_IT, RESOURCE_ID_IMAGE_DAY_5_IT, 
+  RESOURCE_ID_IMAGE_DAY_6_IT
 };
 
 
@@ -351,7 +359,11 @@ void time_slot_slide_out_animation_stopped(Animation *slide_out_animation, bool 
 void display_day(struct tm *tick_time) {
   unload_day_item();
 
-  day_item.image = gbitmap_create_with_resource(DAY_IMAGE_RESOURCE_IDS[tick_time->tm_wday]);
+  if USE_IT_DAYS_LANG
+    day_item.image = gbitmap_create_with_resource(DAY_IMAGE_RESOURCE_IDS_IT[tick_time->tm_wday]);
+  else
+    day_item.image = gbitmap_create_with_resource(DAY_IMAGE_RESOURCE_IDS[tick_time->tm_wday]);
+  endif
 
   day_item.image_layer = bitmap_layer_create(day_item.image->bounds);
   bitmap_layer_set_bitmap(day_item.image_layer, day_item.image);

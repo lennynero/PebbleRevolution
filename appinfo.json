@@ -205,6 +205,42 @@
         "type": "png",
         "name": "IMAGE_DAY_6",
         "file": "images/day_6.png"
+      },
+
+      {
+        "type": "png",
+        "name": "IMAGE_DAY_0_IT",
+        "file": "images/days_it/day_0.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_DAY_1_IT",
+        "file": "images/days_it/day_1.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_DAY_2_IT",
+        "file": "images/days_it/day_2.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_DAY_3_IT",
+        "file": "images/days_it/day_3.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_DAY_4_IT",
+        "file": "images/days_it/day_4.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_DAY_5_IT",
+        "file": "images/days_it/day_5.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_DAY_6_IT",
+        "file": "images/days_it/day_6.png"
       }
     ]
   }
