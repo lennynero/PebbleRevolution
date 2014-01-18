@@ -38,8 +38,8 @@
 #define MONTH_IMAGE_WIDTH     33
 #define MONTH_IMAGE_HEIGHT    13
 	
-#define SECOND_IMAGE_WIDTH  10
-#define SECOND_IMAGE_HEIGHT 10
+/*#define SECOND_IMAGE_WIDTH  10
+#define SECOND_IMAGE_HEIGHT 10*/
 
 #define YEAR_IMAGE_WIDTH  8
 #define YEAR_IMAGE_HEIGHT 8
@@ -87,13 +87,13 @@ RESOURCE_ID_IMAGE_MONTH_9_IT,
   RESOURCE_ID_IMAGE_MONTH_10_IT, RESOURCE_ID_IMAGE_MONTH_11_IT
 };
 
-#define NUMBER_OF_SECOND_IMAGES 10
+/*#define NUMBER_OF_SECOND_IMAGES 10
 const int SECOND_IMAGE_RESOURCE_IDS[NUMBER_OF_SECOND_IMAGES] = {
   RESOURCE_ID_IMAGE_SECOND_0, 
   RESOURCE_ID_IMAGE_SECOND_1, RESOURCE_ID_IMAGE_SECOND_2, RESOURCE_ID_IMAGE_SECOND_3, 
   RESOURCE_ID_IMAGE_SECOND_4, RESOURCE_ID_IMAGE_SECOND_5, RESOURCE_ID_IMAGE_SECOND_6, 
   RESOURCE_ID_IMAGE_SECOND_7, RESOURCE_ID_IMAGE_SECOND_8, RESOURCE_ID_IMAGE_SECOND_9
-};
+};*/
 
 #define NUMBER_OF_YEAR_IMAGES 10
 const int YEAR_IMAGE_RESOURCE_IDS[NUMBER_OF_YEAR_IMAGES] = {
@@ -199,9 +199,9 @@ typedef struct MonthItem {
 static MonthItem month_item;
 
 // Seconds
-#define NUMBER_OF_SECOND_SLOTS 2
+/*#define NUMBER_OF_SECOND_SLOTS 2
 static Layer *seconds_layer;
-static Slot second_slots[NUMBER_OF_SECOND_SLOTS];
+static Slot second_slots[NUMBER_OF_SECOND_SLOTS];*/
 
 // Years
 #define NUMBER_OF_YEAR_SLOTS 2
@@ -247,8 +247,8 @@ void display_month(struct tm *tick_time);
 void unload_month_item();
 
 // Seconds
-void display_seconds(struct tm *tick_time);
-void update_second_slot(Slot *second_slot, int digit_value);
+/*void display_seconds(struct tm *tick_time);
+void update_second_slot(Slot *second_slot, int digit_value);*/
 
 // Years
 void display_years(struct tm *tick_time);
@@ -345,12 +345,13 @@ void update_time_slot(TimeSlot *time_slot, int digit_value) {
     return;
   }
 
-  time_slot->updating = true;
-
   if (time_slot->slot.state == EMPTY_SLOT) {
-    slide_in_digit_image_into_time_slot(time_slot, digit_value);
+    //slide_in_digit_image_into_time_slot(time_slot, digit_value);
+	GRect frame = frame_for_time_slot(time_slot);
+    load_digit_image_into_slot(&time_slot->slot, digit_value, time_layer, frame, TIME_IMAGE_RESOURCE_IDS);  
   }
   else {
+	time_slot->updating = true;
     time_slot->new_state = digit_value;
     slide_out_digit_image_from_time_slot(time_slot);
   }
@@ -547,6 +548,7 @@ void handle_battery(BatteryChargeState charge_state) {
   } else {
 	snprintf(battery_text, sizeof(battery_text), "%dH", 168*charge_state.charge_percent/100);
   }
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "%d%%", charge_state.charge_percent);
   text_layer_set_text(battery_item.text_layer, battery_text);
 }
 
@@ -692,7 +694,7 @@ bitmap_layer_get_layer(month_item.image_layer));
 }
 
 // Seconds
-void display_seconds(struct tm *tick_time) {
+/*void display_seconds(struct tm *tick_time) {
   int seconds = tick_time->tm_sec;
 
   seconds = seconds % 100; // Maximum of two digits per row.
@@ -719,7 +721,7 @@ void update_second_slot(Slot *second_slot, int digit_value) {
 
   unload_digit_image_from_slot(second_slot);
   load_digit_image_into_slot(second_slot, digit_value, seconds_layer, frame, SECOND_IMAGE_RESOURCE_IDS);
-}
+}*/
 
 // Years
 void display_years(struct tm *tick_time) {
@@ -874,7 +876,7 @@ void init() {
   layer_add_child(footer_layer, month_item.layer);
 
   // Seconds
-  for (int i = 0; i < NUMBER_OF_SECOND_SLOTS; i++) {
+  /*for (int i = 0; i < NUMBER_OF_SECOND_SLOTS; i++) {
     Slot *second_slot = &second_slots[i];
     second_slot->number = i;
     second_slot->state  = EMPTY_SLOT;
@@ -887,7 +889,7 @@ void init() {
     SECOND_IMAGE_HEIGHT
   );
   seconds_layer = layer_create(seconds_layer_frame);
-  //layer_add_child(footer_layer, seconds_layer); Workaround for removing seconds...
+  layer_add_child(footer_layer, seconds_layer);*/
 
   // Years
   for (int i = 0; i < NUMBER_OF_YEAR_SLOTS; i++) {
@@ -916,7 +918,7 @@ void init() {
   display_day(tick_time);
   display_date(tick_time);
   display_month(tick_time);
-  display_seconds(tick_time);
+  /*display_seconds(tick_time);*/
   display_years(tick_time);
 
   tick_timer_service_subscribe(MINUTE_UNIT, handle_tick);
@@ -925,14 +927,16 @@ void init() {
 }
 
 void handle_tick(struct tm *tick_time, TimeUnits units_changed) {
-  display_seconds(tick_time);
+  /*display_seconds(tick_time);*/
+	
   display_time(tick_time);
+	handle_battery(battery_state_service_peek());
   
   if ((units_changed & HOUR_UNIT) == HOUR_UNIT) {
 	if(VIBE_ON_HOUR) {
       vibes_double_pulse();
     }
-	//handle_battery(battery_state_service_peek());
+	handle_battery(battery_state_service_peek());
   }
 	
   if ((units_changed & DAY_UNIT) == DAY_UNIT) {
@@ -983,10 +987,10 @@ void deinit() {
   layer_destroy(month_item.layer);
 
   // Seconds
-  for (int i = 0; i < NUMBER_OF_SECOND_SLOTS; i++) {
+  /*for (int i = 0; i < NUMBER_OF_SECOND_SLOTS; i++) {
     unload_digit_image_from_slot(&second_slots[i]);
   }
-  layer_destroy(seconds_layer);
+  layer_destroy(seconds_layer);*/
 	
   // Years
   for (int i = 0; i < NUMBER_OF_YEAR_SLOTS; i++) {
