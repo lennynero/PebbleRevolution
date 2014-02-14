@@ -1,11 +1,11 @@
 {
-    "versionLabel": "2.0",
+    "versionLabel": "2.0.3",
     "uuid": "b1230861-d4eb-4f6e-a2d0-eaa2a07797dd",
     "appKeys": {},
     "longName": "Sort Revolution ITA",
-    "versionCode": 20,
+    "versionCode": 203,
     "capabilities": [
-        ""
+        "configurable"
     ],
     "shortName": "SortRevolution",
     "companyName": "Luigi Picaro",
@@ -16,18 +16,113 @@
         "media": [
             {
                 "type": "png",
+                "name": "IMAGE_MONTH_11_EN",
+                "file": "images/mount_11_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_MONTH_9_EN",
+                "file": "images/mount_9_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_MONTH_8_EN",
+                "file": "images/mount_8_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_MONTH_7_EN",
+                "file": "images/mount_7_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_MONTH_6_EN",
+                "file": "images/mount_6_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_MONTH_5_EN",
+                "file": "images/mount_5_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_MONTH_4_EN",
+                "file": "images/mount_4_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_MONTH_0_EN",
+                "file": "images/mount_0_en.png"
+            },
+            {
+                "type": "png",
                 "name": "IMAGE_LOGO",
-                "file": "images/pebble_logo.png"
+                "file": "images/logo.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_BT",
+                "file": "images/bt.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_DAY_6_EN",
+                "file": "images/day_6_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_DAY_5_EN",
+                "file": "images/day_5_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_DAY_4_EN",
+                "file": "images/day_4_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_DAY_3_EN",
+                "file": "images/day_3_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_DAY_2_EN",
+                "file": "images/day_2_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_DAY_1_EN",
+                "file": "images/day_1_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_DAY_0_EN",
+                "file": "images/day_0_en.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_YEARS_20",
+                "file": "images/years_20.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_POST_MERIDIEM",
+                "file": "images/post_meridiem.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_ANTE_MERIDIEM",
+                "file": "images/ante_meridiem.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_MONTH_0_IT",
+                "file": "images/month_0_it.png"
             },
             {
                 "type": "png",
                 "name": "IMAGE_BATTERY",
                 "file": "images/battery.png"
-            },
-            {
-                "type": "png",
-                "name": "IMAGE_BT_CONN",
-                "file": "images/bt_conn.png"
             },
             {
                 "menuIcon": true,
@@ -89,11 +184,6 @@
                 "type": "png",
                 "name": "IMAGE_MONTH_1_IT",
                 "file": "images/month_1_it.png"
-            },
-            {
-                "type": "png",
-                "name": "IMAGE_MONTH_0_IT",
-                "file": "images/month_0.png"
             },
             {
                 "type": "png",
@@ -229,41 +319,6 @@
                 "type": "png",
                 "name": "IMAGE_DAY_0_IT",
                 "file": "images/day_0_it.png"
-            },
-            {
-                "type": "png",
-                "name": "IMAGE_DAY_6",
-                "file": "images/day_6.png"
-            },
-            {
-                "type": "png",
-                "name": "IMAGE_DAY_5",
-                "file": "images/day_5.png"
-            },
-            {
-                "type": "png",
-                "name": "IMAGE_DAY_4",
-                "file": "images/day_4.png"
-            },
-            {
-                "type": "png",
-                "name": "IMAGE_DAY_3",
-                "file": "images/day_3.png"
-            },
-            {
-                "type": "png",
-                "name": "IMAGE_DAY_2",
-                "file": "images/day_2.png"
-            },
-            {
-                "type": "png",
-                "name": "IMAGE_DAY_1",
-                "file": "images/day_1.png"
-            },
-            {
-                "type": "png",
-                "name": "IMAGE_DAY_0",
-                "file": "images/day_0.png"
             },
             {
                 "type": "png",
